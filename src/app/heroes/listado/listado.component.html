@@ -1,0 +1,19 @@
+<p>listado works!</p>
+
+<ul id="lista">
+    <li *ngFor="let heroe of heroes; let i=index"> <!--Asi se hace un for en Angular, a esto se le llama directiva, y esto del *ngFor es la directiva del for para hacer un for en el html asi como haciamos por ejemplo los fors en el html usando django, con esa misma logica. Tambien opcionalmente podemos en el for extraer el valor del indice de cada elemento, esto se puede hacer ya que al aplicar el *ngFor entonces automaticamente Angular tambien manda la variable index para usarla en esa directiva de for, y aqui estamos igualando el valor de index a i que es una variable que nosotros creamos, esto se debe hacer asi con una variable que nosotros creemos ya que no podemos ocupar el index en el bloque for, solo aqui cuando se declara el *ngFor-->
+        {{i+1}} {{heroe}}
+    </li>
+</ul>
+
+<div *ngIf="heroeBorrado; else noBorrado"> <!--Asi como arriba se usó la directiva del for en angular para usar el for en el html, aqui se usa la directiva del if, que es *ngIf, y aqui solo se puso el atributo heroeBorrado de la clase del archivo listado.component.ts porque typescript asi como en python entiende que un string vacio es false, y un string que no es vacio es true, entonces eso se está evaluando aqui, si el string es vacio entonces que no entre a este if, y si no es vacio que sí entre a este if, hay que recordar que en los eventos y directivas se pone codigo typescript como se vio en el ngFor de arriba. Tambien se puso el else, pero en Angular el else en html ademas que se pone en la misma linea que el if como se ve aqui tambien se le pone una variable local del archivo html, y entonces esa variable local hace referencia a un bloque ng-template en el html para que digamos que si no se comple esta condicion entonces que se ejecute el bloque de ng-template que haga referencia a esta variable local noBorrado, y abajo se muestra esto-->
+    <h3>Heroe borrado: <small>{{heroeBorrado}}</small></h3>
+</div>
+
+<ng-template #noBorrado> <!--Aqui se muestra lo que se ejecutará en caso que no se cumpla la condicion de arriba del if, se hace referencia a la variable local noBorrado on un signo de gato # al principio, y eso se puso en el else del if de arriba, asi funciona el if else con angular en el html, y esto que se va a ejecutar en en el caso que no se cumpla la condicion de arriba, osea con el else, y siempre debe ser con el else un bloque ng-tamplate como se ve aqui-->
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+<br>
+
+<button (click)="borrarHeroe()" id="boton1">Borrar</button>

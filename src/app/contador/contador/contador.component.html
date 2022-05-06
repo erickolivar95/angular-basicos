@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+    <h1>Hola mundo</h1>
+    <h1>{{titulo}}</h1> <!--Esto va a imprimir la variable title del archivo contador.component.ts-->
+    <h1>La base es: <strong>{{base}}</strong></h1>
+
+    <!-- <button (click)="numero = numero + 1;" >+ 1</button>  Esto es propio de Angular que pongamos entre parentesis click aqui, y eso indica un evento, todo lo que pongamos en un tag de html con parentesis significa en angular que eso es un evento como los eventos vistos en el curso de Javascript cuando usamos el DOM, y esto es un evento de click, osea cuando se da click a un boton o cualquier cosa ya que ese evento de click podemos ponerlo en cualquier tag de html, pero pues tiene sentido que lo pongamos en los botones, y tambien hay mas evento. Y al cumplirse ese evento entonces se hace algo, y eso que se hará será que la variable numero mandada desde el archivo contador.component.ts se incremente en 1, y con el boton de abajo que se decremente en 1. Aunque hay que tener en cuenta que como buena practica hay que poner el menor codigo de typescript aqui, ya que eso de incrementar es codigo typescript, pero hay que cuidar que todo el codigo typescript que pogamos sea en el archivo contador.component.ts -->
+    <!--NOTA: lo de la anterior linea se comentó porque al final mejor usamos un metodo en el archivo contador.component.ts para sumar y para restar el valor de la variable numero, como se ve abajo: -->
+    <!-- <button (click)="sumar()">+ 1</button>   Esto llama al metodo sumar de la clase en el archivo contador.component.ts -->
+    <!--NOTA: lo de la anterior linea tambien se comentó porque al final lo hicimos con un metodo llamado acumular para que asi solo tengamos un metodo y no 2 por separado ya que tanto sumar como restar hacían casi lo mismo-->
+    <button (click)="acumular(base)" >+ {{base}}</button>
+
+    <span>{{numero}}</span> <!--Esta variable numero se manda desde el archivo contador.component.ts, podemos ver que dentro del metodo sumar y restar en la clase del archivo contador.component.ts el atributo ahi de numero se llama igual como es con el typescript normal usando el this, pero aqui no se pone el this, asi se hace en el html, nunca se pone el this para llamar a los atributos y metodos de la clase en los archivos de typescript, eso solo se hace dentro de un archivo de typescript-->
+
+    <!-- <button (click)="numero = numero - 1;">- 1</button> -->
+    <!-- <button (click)="restar()">- 1</button> -->
+    <button (click)="acumular(-base)" >- {{base}}</button>
+</body>
+</html>

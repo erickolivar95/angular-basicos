@@ -1,0 +1,21 @@
+<h1>{{nombre}}</h1>
+
+<dl> <!--El dl en html sirve para representa pares valores en html, usando en su bloque el td para los nombres y el dd para los valores como se ve abajo-->
+    <td>Nombre:</td>
+    <dd>{{nombre}}</dd>
+
+    <td>Edad:</td>
+    <dd>{{edad}}</dd>
+
+    <td>Metodo:</td>
+    <dd>{{obtenerNombre()}}</dd>
+
+    <td>Capitalizado:</td>
+    <dd>{{nombre.toUpperCase()}}</dd> <!--Tambien se puede poner codigo de typescript entre las 2 llaves, como este metodo de toUpperCase que es propio del typescript, aunque mejor esto se debe evitar hacer y hacerlo mejor desde el archivo typescript como se hizo con el siguiente par nombre-valor de este dl-->
+
+    <td>Capitalizado2:</td>
+    <dd>{{nombreCapitalizado}}</dd> <!--Esto es mejor practica que lo hecho arriba para tener el nombre capitalizado, osea en mayusculas, y esto no es un atributo sino un metodo getter, pero hay que recordar que en typescript un metodo getter se llama como si fuera un atributo como aqui, osea sin ocupar sus parentesis -->
+</dl>
+
+<button (click)="cambiarNombre()">Cambiar heroe</button>
+<button (click)="cambiarEdad()">Cambiar edad</button>
